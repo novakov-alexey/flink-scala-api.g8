@@ -3,11 +3,22 @@
 // See https://www.foundweekends.org/giter8/testing.html#Using+the+Giter8Plugin for more details.
 lazy val root = (project in file("."))
   .enablePlugins(ScriptedPlugin)
-  .settings(
+  .settings(    
     name := "flink-scala-api",
-    test in Test := {
-      val _ = (g8Test in Test).toTask("").value
+    Test / test := {
+      val _ = (Test / g8Test).toTask("").value
     },
-    scriptedLaunchOpts ++= List("-Xms1024m", "-Xmx1024m", "-XX:ReservedCodeCacheSize=128m", "-Xss2m", "-Dfile.encoding=UTF-8"),
-    resolvers += Resolver.url("typesafe", url("https://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
+    scriptedLaunchOpts ++= List(
+      "-Xms1024m",
+      "-Xmx1024m",
+      "-XX:ReservedCodeCacheSize=128m",
+      "-Xss2m",
+      "-Dfile.encoding=UTF-8",
+      "-Dplugin.version=" + version.value
+    ),
+    scriptedBufferLog := false,
+    resolvers += Resolver.url(
+      "typesafe",
+      url("https://repo.typesafe.com/typesafe/ivy-releases/")
+    )(Resolver.ivyStylePatterns)
   )
