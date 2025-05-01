@@ -5,9 +5,9 @@ ThisBuild / organization := "com.example"
 ThisBuild / scalaVersion := "3.6.2"
 
 lazy val root = (project in file(".")).settings(
-  name := "my-flink-scala-proj",
+  name := "$name$",
   libraryDependencies ++= Seq(
-    "org.flinkextended" %% "flink-scala-api" % "$flinkVersion$_1.2.1",
+    "org.flinkextended" %% "flink-scala-api-1" % "1.2.6",
     "org.apache.flink" % "flink-clients" % "$flinkVersion$" % Provided
   )
 )
