@@ -8,3 +8,4 @@ project/plugins/project/
 .metals
 metals.sbt
 .bsp
+.idea
