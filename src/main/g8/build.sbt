@@ -2,12 +2,12 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 // give the user a nice default project!
 ThisBuild / organization := "com.example"
-ThisBuild / scalaVersion := "3.6.2"
+ThisBuild / scalaVersion := "3.7.4"
 
 lazy val root = (project in file(".")).settings(
   name := "$name$",
   libraryDependencies ++= Seq(
-    "org.flinkextended" %% "flink-scala-api-1" % "1.2.6",
+    "org.flinkextended" %% "flink-scala-api-2" % "2.0.4",
     "org.apache.flink" % "flink-clients" % "$flinkVersion$" % Provided
   )
 )
